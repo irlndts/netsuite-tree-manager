@@ -1,8 +1,11 @@
+GRANT ALL PRIVILEGES ON netsuite_tree_manager.* TO piskun@localhost identified by 'vj095crdf' with grant option;
+
 drop table if exists nodes; 
 
 create table nodes (
-    u_id int not null, -- unique node id
-    pid    int, -- parent id
-    id   int not null, -- current node id
-    constraint pk_pid primary key (pid)
+    uid int auto_increment not null, -- unique node id
+    pid int not null, -- parent id
+    cid int not null, -- current node id
+    constraint pk_uid primary key (uid),
+    key k_pid (pid)
 )
