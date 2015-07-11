@@ -23,7 +23,7 @@ has 'pid' => (
         predicate => 'has_pid', 
     );
 
-#unique id
+#current id
 has 'cid' => ( 
         is => 'rw', 
         isa => 'Int',
@@ -34,12 +34,18 @@ has 'cid' => (
 ###methods###
 #############
 
+sub is_defined {
+	my $self = shift;
+	return 0 if (!defined $self->{pid} || $self->{pid} eq '');
+	return 1;
+}
+
 sub writeNode {
-    my $self = shift;
-    my $db_connection = shift;
+	my $self = shift;
+	my $db_connection = shift;
 
-    $db_connection->write($self);
-
+	return 0 unless $self->is_defined();
+	return $db_connection->write($self);
 }
 
 

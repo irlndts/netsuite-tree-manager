@@ -3,10 +3,9 @@ package Classes::NodeDBIx;
 use strict;
 use Moose;
 use YAML::AppConfig;
+use Data::Dumper;
 
 use Classes::NodeDBIx::Schema;
-
-
 
 ###############
 ###variables###
@@ -40,12 +39,19 @@ sub connect {
     );
 }
 
+sub read {
+	my $self = shift;
+    	$self->connect() unless $self->is_connected();
+	my $rs = $self->connection->resultset('Node');	
+	return ($rs->search(undef,{result_class => 'DBIx::Class::ResultClass::HashRefInflator'}));
+}
+
 sub write {
     my $self = shift;
     my $node = shift;
 
     $self->connect() unless $self->is_connected();
-    return $self->connection->resultset('Node')->create({pid => $node->{pid}, cid => $node->{cid}});
+    return $self->connection->resultset('Node')->create({pid => $node->{pid}});
 }
 
 1;

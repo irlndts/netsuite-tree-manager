@@ -7,5 +7,6 @@ create table nodes (
     pid int not null, -- parent id
     cid int not null, -- current node id
     constraint pk_uid primary key (uid),
-    key k_pid (pid)
+    key k_pid (pid),
+    key k_cid (cid)
 )
