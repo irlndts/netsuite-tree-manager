@@ -17,6 +17,6 @@ __PACKAGE__->load_namespaces;
 
 
 # You can replace this text with custom code or comments, and it will be preserved on regeneration
-__PACKAGE__->load_components('Schema::Config');
-__PACKAGE__->config_paths([( '../../../conf/' )]);
+#__PACKAGE__->load_components('Schema::Config');
+#__PACKAGE__->config_paths([( '../../../conf/' )]);
 1;

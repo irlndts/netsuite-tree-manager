@@ -2,6 +2,7 @@
 
 use warnings;
 use strict;
+use lib "../be/";
 use Test::More;
 use Classes::NodeDBIx::Schema;
 use YAML::AppConfig;
