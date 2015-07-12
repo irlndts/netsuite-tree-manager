@@ -2,9 +2,6 @@ package Classes::NodeDBIx;
 
 use strict;
 use Moose;
-use YAML::AppConfig;
-use Data::Dumper;
-use feature qw/say/;
 
 use Classes::NodeDBIx::Schema;
 

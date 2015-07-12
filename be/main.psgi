@@ -1,6 +1,5 @@
 #!/usr/bin/perl -w
 
-use Data::Dumper;
 use YAML::AppConfig;
 use Plack;
 use Plack::Request;
@@ -8,7 +7,6 @@ use Plack::Response;
 use Plack::Builder;
 use Template;
 
-use feature qw(say);
 use strict;
 
 #selfmade libraries
@@ -55,7 +53,7 @@ sub app {
 		my %vars;
 		my $result;
 			
-		#add new node for location write
+		# --- add new node for location write
 		if (defined $location && $location eq 'write'){
 			my $params = $req->parameters();
 			if (defined $params->{pid} && $params->{pid} =~ /^\d+$/){
@@ -66,7 +64,7 @@ sub app {
 			}
 			$vars{error}.="Can't write the pid: $params->{pid}" unless $result;
 		}
-		#write location finish
+		# --- write location finish
 
 		my @nodes = $db->read();
 		
@@ -76,7 +74,7 @@ sub app {
 			push(@{$h_nodes->{$node->{row}}->{$node->{pid}}} , $node->{id});
 		}
 			
-		#show data to client
+		#ready data to client
 		foreach my $row (sort {$a <=> $b} keys %{$h_nodes}){
 			$vars{body} .= "<tr><td>$row</td><td>";
 			foreach my $pid (sort {$a <=> $b} keys %{$h_nodes->{$row}}){
