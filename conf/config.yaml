@@ -1,6 +1,6 @@
 tree_manager_db:
     dsn: "DBI:mysql:database=netsuite_tree_manager:host=localhost:port=3306:"
-    user: "piskun"
+    user: "manager"
     password: "vj095crdf"
     quote_name: "1"
     mysql_enable_utf8: "1"

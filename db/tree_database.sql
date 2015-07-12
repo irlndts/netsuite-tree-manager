@@ -1,4 +1,4 @@
-GRANT ALL PRIVILEGES ON netsuite_tree_manager.* TO piskun@localhost identified by 'vj095crdf' with grant option;
+GRANT ALL PRIVILEGES ON netsuite_tree_manager.* TO manager@localhost identified by 'vj095crdf' with grant option;
 
 drop table if exists nodes; 
 
