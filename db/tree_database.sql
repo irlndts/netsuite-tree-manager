@@ -6,7 +6,19 @@ create table nodes (
     uid int auto_increment not null, -- unique node id
     pid int not null, -- parent id
     cid int not null, -- current node id
-    constraint pk_uid primary key (uid),
-    key k_pid (pid),
-    key k_cid (cid)
-)
+    row int,
+    constraint pk_uid primary key (uid)
+);
+
+insert into nodes values (0,0,0,0);
+
+DELIMITER ;;
+
+DROP TRIGGER IF EXISTS add_row_to_node;;
+
+CREATE TRIGGER add_row_to_node BEFORE INSERT ON nodes FOR each ROW   
+BEGIN
+	set NEW.row = 1 + (select row from nodes where cid = NEW.pid limit 0,1);
+END;;
+DELIMITER ;;
+

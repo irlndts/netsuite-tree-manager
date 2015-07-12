@@ -32,9 +32,14 @@ __PACKAGE__->table("nodes");
 =head2 pid
 
   data_type: 'integer'
-  is_nullable: 1
+  is_nullable: 0
 
 =head2 cid
+
+  data_type: 'integer'
+  is_nullable: 0
+
+=head2 row
 
   data_type: 'integer'
   is_nullable: 0
@@ -45,8 +50,10 @@ __PACKAGE__->add_columns(
   "uid",
   { data_type => "integer", is_auto_increment => 1, is_nullable => 0 },
   "pid",
-  { data_type => "integer", is_nullable => 1 },
+  { data_type => "integer", is_nullable => 0 },
   "cid",
+  { data_type => "integer", is_nullable => 0 },
+  "row",
   { data_type => "integer", is_nullable => 0 },
 );
 
@@ -63,8 +70,8 @@ __PACKAGE__->add_columns(
 __PACKAGE__->set_primary_key("uid");
 
 
-# Created by DBIx::Class::Schema::Loader v0.07042 @ 2015-07-10 15:34:01
-# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:0eeUbDuezDCjvDZSX7RizQ
+# Created by DBIx::Class::Schema::Loader v0.07039 @ 2015-07-11 17:04:08
+# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:srbmRCo4jONTHx/JgqctqQ
 
 
 # You can replace this text with custom code or comments, and it will be preserved on regeneration

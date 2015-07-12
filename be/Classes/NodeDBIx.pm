@@ -51,7 +51,7 @@ sub write {
     my $node = shift;
 
     $self->connect() unless $self->is_connected();
-    return $self->connection->resultset('Node')->create({pid => $node->{pid}});
+    return $self->connection->resultset('Node')->create({pid => $node->{pid}, cid => int(rand(100))});
 }
 
 1;

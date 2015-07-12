@@ -30,6 +30,13 @@ has 'cid' => (
         predicate => 'has_cid', 
     );
 
+#row of the node
+has 'row' => ( 
+        is => 'rw', 
+        isa => 'Int',
+        predicate => 'has_row', 
+    );
+
 #############
 ###methods###
 #############
@@ -43,11 +50,8 @@ sub is_defined {
 sub writeNode {
 	my $self = shift;
 	my $db_connection = shift;
-
 	return 0 unless $self->is_defined();
 	return $db_connection->write($self);
 }
-
-
 
 1;

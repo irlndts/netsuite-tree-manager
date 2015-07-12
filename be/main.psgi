@@ -26,7 +26,8 @@ sub app {
 		
 		my $body;
 		my $result;
-
+			
+		#add new node
 		if (defined $location && $location eq 'write'){
 			my $params = $req->parameters();
 			if (defined $params->{pid} && $params->{pid} ne ''){
@@ -41,7 +42,7 @@ sub app {
 		my @nodes = $db->read();
 
 		foreach my $node (@nodes){
-			$body .= $node->{uid}." ".$node->{pid}." ".$node->{cid}."\n";
+			$body .= "ROW: ".$node->{row}." UID: ".$node->{uid}." PID: ".$node->{pid}." CID: ".$node->{cid}."\n";
 		}
 
 		my $res = $req->new_response(200);
