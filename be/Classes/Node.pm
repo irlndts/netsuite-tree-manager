@@ -2,7 +2,6 @@ package Classes::Node;
 
 use strict;
 use Moose;
-use YAML::AppConfig;
 
 use Classes::NodeDBIx;
 
@@ -10,10 +9,10 @@ use Classes::NodeDBIx;
 ###variables###
 ###############
 #unique id
-has 'uid' => ( 
+has 'id' => ( 
         is => 'rw', 
         isa => 'Int',
-        predicate => 'has_uid', 
+        predicate => 'has_id', 
     );
 
 #parant id
@@ -21,13 +20,6 @@ has 'pid' => (
         is => 'rw', 
         isa => 'Int',
         predicate => 'has_pid', 
-    );
-
-#current id
-has 'cid' => ( 
-        is => 'rw', 
-        isa => 'Int',
-        predicate => 'has_cid', 
     );
 
 #row of the node

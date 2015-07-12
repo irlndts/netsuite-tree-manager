@@ -23,7 +23,7 @@ __PACKAGE__->table("nodes");
 
 =head1 ACCESSORS
 
-=head2 uid
+=head2 id
 
   data_type: 'integer'
   is_auto_increment: 1
@@ -34,44 +34,37 @@ __PACKAGE__->table("nodes");
   data_type: 'integer'
   is_nullable: 0
 
-=head2 cid
-
-  data_type: 'integer'
-  is_nullable: 0
-
 =head2 row
 
   data_type: 'integer'
-  is_nullable: 0
+  is_nullable: 1
 
 =cut
 
 __PACKAGE__->add_columns(
-  "uid",
+  "id",
   { data_type => "integer", is_auto_increment => 1, is_nullable => 0 },
   "pid",
   { data_type => "integer", is_nullable => 0 },
-  "cid",
-  { data_type => "integer", is_nullable => 0 },
   "row",
-  { data_type => "integer", is_nullable => 0 },
+  { data_type => "integer", is_nullable => 1 },
 );
 
 =head1 PRIMARY KEY
 
 =over 4
 
-=item * L</uid>
+=item * L</id>
 
 =back
 
 =cut
 
-__PACKAGE__->set_primary_key("uid");
+__PACKAGE__->set_primary_key("id");
 
 
-# Created by DBIx::Class::Schema::Loader v0.07039 @ 2015-07-11 17:04:08
-# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:srbmRCo4jONTHx/JgqctqQ
+# Created by DBIx::Class::Schema::Loader v0.07039 @ 2015-07-12 08:14:29
+# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:0IRXF9VLMlKnQhBvqKKjWw
 
 
 # You can replace this text with custom code or comments, and it will be preserved on regeneration

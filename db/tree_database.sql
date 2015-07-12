@@ -3,14 +3,13 @@ GRANT ALL PRIVILEGES ON netsuite_tree_manager.* TO piskun@localhost identified b
 drop table if exists nodes; 
 
 create table nodes (
-    uid int auto_increment not null, -- unique node id
+    id int auto_increment not null, -- node id
     pid int not null, -- parent id
-    cid int not null, -- current node id
     row int,
-    constraint pk_uid primary key (uid)
+    constraint pk_uid primary key (id)
 );
 
-insert into nodes values (0,0,0,0);
+insert into nodes values (0,0,0);
 
 DELIMITER ;;
 
@@ -18,7 +17,6 @@ DROP TRIGGER IF EXISTS add_row_to_node;;
 
 CREATE TRIGGER add_row_to_node BEFORE INSERT ON nodes FOR each ROW   
 BEGIN
-	set NEW.row = 1 + (select row from nodes where cid = NEW.pid limit 0,1);
+	set NEW.row = 1 + (select row from nodes where id = NEW.pid limit 0,1);
 END;;
 DELIMITER ;;
-

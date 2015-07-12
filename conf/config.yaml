@@ -1,0 +1,20 @@
+tree_manager_db:
+    dsn: "DBI:mysql:database=netsuite_tree_manager:host=localhost:port=3306:"
+    user: "piskun"
+    password: "vj095crdf"
+    quote_name: "1"
+    mysql_enable_utf8: "1"
+
+template:
+    start_tag: "<?"
+    end_tag: "?>"
+    interpolate: 0
+    auto_reset: 1
+    error: "_error"
+    eval_perl: 1
+    cache_size: 1024
+    load_perl: 1
+    recursion: 1
+    include_path: "../static/"
+    compile_ext: ".tpl"
+    compile_dir: "/var/tmp/tt2cache"

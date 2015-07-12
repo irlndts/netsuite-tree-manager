@@ -15,10 +15,10 @@ my $db_conf = $conf->get("tree_manager_db");
 sub run_tests {
     my ( $db ) = @_;
 
-    ok $db->resultset('Node')->create( { pid => 9999, cid => 3000 }), 
+    ok $db->resultset('Node')->create( { pid => 9999}), 
         "Adding a row to the database seems to work.";
 
-    is $db->resultset('Node')->find( { pid => 9999 } )->cid, 3000,
+    is $db->resultset('Node')->find( { pid => 9999 } )->pid, 9999,
         "Looking up a row from the database seems to work.";
 
     ok $db->resultset('Node')->search( { pid => 9999 } )->delete,
