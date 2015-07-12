@@ -1,5 +1,3 @@
---GRANT ALL PRIVILEGES ON netsuite_tree_manager.* TO LOGIN@localhost identified by '' with grant option;
-
 drop table if exists nodes; 
 
 create table nodes (
