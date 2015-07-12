@@ -26,4 +26,4 @@ foreach (@libs){
 	system("apt-get install -y $_");
 }
 
-system ("mysql --password=$db_password -u db_login netsuite_tree_manager < ./db/tree_database.sql");
+system ("mysql --password=$db_password -u $db_login netsuite_tree_manager < ./db/tree_database.sql");
