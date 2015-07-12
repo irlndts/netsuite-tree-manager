@@ -75,7 +75,8 @@ sub app {
 		foreach my $node (@nodes){
 			push(@{$h_nodes->{$node->{row}}->{$node->{pid}}} , $node->{id});
 		}
-
+			
+		#show data to client
 		foreach my $row (sort {$a <=> $b} keys %{$h_nodes}){
 			$vars{body} .= "<tr><td>$row</td><td>";
 			foreach my $pid (sort {$a <=> $b} keys %{$h_nodes->{$row}}){
